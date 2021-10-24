@@ -8,7 +8,7 @@ recognition.grammars = speechRecognitionList;
 recognition.continuous = false;
 recognition.lang = 'hu-HU';
 recognition.interimResults = false;
-recognition.maxAlternatives = 1;
+recognition.maxAlternatives = 10;
 
 const btn = document.querySelector('.gomb');
 const mégse = document.getElementById('mégse')
@@ -35,36 +35,40 @@ btn.addEventListener('click', function() {
         $('#two').css('background-color', color[Math.floor(Math.random() * 7)])
         $('#three').css('background-color', color[Math.floor(Math.random() * 7)])
         $('#four').css('background-color', color[Math.floor(Math.random() * 7)])
+        console.log($('#one').css('background-color'))
+        console.log($('#two').css('background-color'))
+        console.log($('#three').css('background-color'))
+        console.log($('#four').css('background-color'))
     } else if (köregy == 2) {
         recognition.start()
-        recognition.onresult = function(event) {
+        recognition.onresult = function(evente) {
 
-            let current = event.resultIndex;
-            let transcript = event.results[current][0].transcript
+            let current = evente.resultIndex;
+            let transcript = evente.results[current][0].transcript
 
             if (transcript.includes('piros' || 'Piros')) {
-                console.log(event)
+                console.log(evente)
                 $('#five').css('background-color', 'red')
             } else if (transcript.includes('kék' || 'Kék')) {
-                console.log(event)
+                console.log(evente)
                 $('#five').css('background-color', 'blue')
             } else if (transcript.includes('rózsaszín' || 'Rózsaszín')) {
-                console.log(event)
+                console.log(evente)
                 $('#five').css('background-color', 'pink')
             } else if (transcript.includes('fehér' || 'Fehér')) {
-                console.log(event)
+                console.log(evente)
                 $('#five').css('background-color', 'white')
             }else if (transcript.includes('narancs' || 'Narancs' )) {
-                console.log(event)
+                console.log(evente)
                 $('#five').css('background-color', 'rgb(211, 112, 31)')
             } else if (transcript.includes('citrom' || 'Citrom')) {
-                console.log(event)
+                console.log(evente)
                 $('#five').css('background-color', 'yellow')
             } else if (transcript.includes('zöld' || 'Zöld')) {
-                console.log(event)
+                console.log(evente)
                 $('#five').css('background-color', 'green')
             } else if (transcript.includes('lila' || 'Lila')) {
-                console.log(event)
+                console.log(evente)
                 $('#five').css('background-color', 'purple')
             }
 
@@ -195,6 +199,11 @@ btn.addEventListener('click', function() {
 
                                     if ($('#eight').css('background-color') == $('#four').css('background-color')) {
                                         $('#jónégy').css('background-color', 'black')
+                                    }
+
+                                    if ($('#jóegy').css('background-color') && $('#jókettő').css('background-color') && $('#jóhárom').css('background-color') && $('#jónégy').css('background-color') == $('#semmi').css('background-color')) {
+                                        console.log('nyertél')
+                                        location.reload()
                                     }
                                 }
                             }
@@ -364,6 +373,10 @@ btn.addEventListener('click', function() {
 
                                     if ($('#twelve').css('background-color') == $('#four').css('background-color')) {
                                         $('#jónyolc').css('background-color', 'black')
+                                    }
+
+                                    if ($('#jóöt').css('background-color') && $('#jóhat').css('background-color') && $('#jóhét').css('background-color') && $('#jónyolc').css('background-color') == $('#semmi').css('background-color')) {
+                                        console.log('nyertél')
                                     }
                                 }
                             }
@@ -536,6 +549,10 @@ btn.addEventListener('click', function() {
                                     if ($('#sixteen').css('background-color') == $('#four').css('background-color')) {
                                         $('#jótizenkettő').css('background-color', 'black')
                                     }
+
+                                    if ($('#jókilenc').css('background-color') && $('#jótíz').css('background-color') && $('#jótizenegy').css('background-color') && $('#jótizenkettő').css('background-color') == $('#semmi').css('background-color')) {
+                                        console.log('nyertél')
+                                    }
                                 }
                             }
                         }
@@ -704,6 +721,10 @@ btn.addEventListener('click', function() {
 
                                     if ($('#twenty').css('background-color') == $('#four').css('background-color')) {
                                         $('#jótizenhat').css('background-color', 'black')
+                                    }
+
+                                    if ($('#jótizenhárom').css('background-color') && $('#jótizennégy').css('background-color') && $('#jótizenöt').css('background-color') && $('#jótizenhat').css('background-color') == $('#semmi').css('background-color')) {
+                                        console.log('nyertél')
                                     }
                                 }
                             }
@@ -874,6 +895,10 @@ btn.addEventListener('click', function() {
                                     if ($('#twenty').css('background-color') == $('#four').css('background-color')) {
                                         $('#jóhúsz').css('background-color', 'black')
                                     }
+
+                                    if ($('#jótizenhét').css('background-color') && $('#jótizennyolc').css('background-color') && $('#jótizenkilenc').css('background-color') && $('#jóhúsz').css('background-color') == $('#semmi').css('background-color')) {
+                                        console.log('nyertél')
+                                    }
                                 }
                             }
                         }
@@ -1042,6 +1067,10 @@ btn.addEventListener('click', function() {
 
                                     if ($('#twentyeight').css('background-color') == $('#four').css('background-color')) {
                                         $('#jóhuszonnégy').css('background-color', 'black')
+                                    }
+
+                                    if ($('#jóhuszonegy').css('background-color') && $('#jóhuszonkettő').css('background-color') && $('#jóhuszonhárom').css('background-color') && $('#jóhuszonnégy').css('background-color') == $('#semmi').css('background-color')) {
+                                        console.log('nyertél')
                                     }
                                 }
                             }
@@ -1212,6 +1241,10 @@ btn.addEventListener('click', function() {
                                     if ($('#thirtytwo').css('background-color') == $('#four').css('background-color')) {
                                         $('#jóhuszonnyolc').css('background-color', 'black')
                                     }
+
+                                    if ($('#jóhuszonöt').css('background-color') && $('#jóhuszonhat').css('background-color') && $('#jóhuszonhét').css('background-color') && $('#jóhuszonnyolc').css('background-color') == $('#semmi').css('background-color')) {
+                                        console.log('nyertél')
+                                    }
                                 }
                             }
                         }
@@ -1380,6 +1413,10 @@ btn.addEventListener('click', function() {
 
                                     if ($('#thirtysix').css('background-color') == $('#four').css('background-color')) {
                                         $('#jóharminckettő').css('background-color', 'black')
+                                    }
+
+                                    if ($('#jóhuszonkilenc').css('background-color') && $('#jóharminc').css('background-color') && $('#jóharmincegy').css('background-color') && $('#jóharminckettő').css('background-color') == $('#semmi').css('background-color')) {
+                                        console.log('nyertél')
                                     }
                                 }
                             }
@@ -1550,6 +1587,10 @@ btn.addEventListener('click', function() {
                                     if ($('#fourty').css('background-color') == $('#four').css('background-color')) {
                                         $('#jóharminchat').css('background-color', 'black')
                                     }
+
+                                    if ($('#jóharminchárom').css('background-color') && $('#jóharmincnégy').css('background-color') && $('#jóharmincöt').css('background-color') && $('#jóharminchat').css('background-color') == $('#semmi').css('background-color')) {
+                                        console.log('nyertél')
+                                    }
                                 }
                             }
                         }
@@ -1718,6 +1759,10 @@ btn.addEventListener('click', function() {
 
                                     if ($('#fourtyfour').css('background-color') == $('#four').css('background-color')) {
                                         $('#jónegyven').css('background-color', 'black')
+                                    }
+
+                                    if ($('#jóharminchét').css('background-color') && $('#jóharmincnyolc').css('background-color') && $('#jóharminckilenc').css('background-color') && $('#jónegyven').css('background-color') == $('#semmi').css('background-color')) {
+                                        console.log('nyertél')
                                     }
                                 }
                             }
@@ -1888,6 +1933,10 @@ btn.addEventListener('click', function() {
                                     if ($('#fourtyeight').css('background-color') == $('#four').css('background-color')) {
                                         $('#jónegyvennégy').css('background-color', 'black')
                                     }
+
+                                    if ($('#jónegyvenegy').css('background-color') && $('#jónegyvenkettő').css('background-color') && $('#jónegyvenhárom').css('background-color') && $('#jónegyvennégy').css('background-color') == $('#semmi').css('background-color')) {
+                                        console.log('nyertél')
+                                    }
                                 }
                             }
                         }
@@ -1898,6 +1947,3 @@ btn.addEventListener('click', function() {
     }
 })
 
-mégse.addEventListener('click', function() {
-    darab = darab - 1
-})
